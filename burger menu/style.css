@@ -1,0 +1,216 @@
+body {
+    height: 100vh;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    background: #ffcfc7;
+  }
+  .burger-title{
+    color: #100606;
+    /* font-family: 'Segoe UI', sans-serif; */
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    animation: bounceIn 1s ease forwards;
+    opacity: 0;
+  }
+
+@keyframes bounceIn {
+  0% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(10px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+  .burger-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: .3s ease;
+    cursor: pointer;
+    gap: 0;
+    
+    .menu-item {
+    position: relative;
+      
+      span {
+        display: block;
+      }
+      
+      .text {
+        position: absolute;
+        opacity: 0;
+        top: 50%;
+        transition: .3s ease;
+        transition-delay: .2s;
+        width: 100px;
+      }
+    
+    &:nth-child(even) {
+      .text {
+        left:120%;
+        transform: translate(30px,-50%);
+        opacity: 0;
+      }
+    }
+      
+      &:nth-child(odd) {
+      .text {
+        right:120%;
+        transform: translate(-30px,-50%);
+        opacity: 0;
+        text-align: right;
+      }
+    }
+  }
+    
+    &.open {
+      gap: 1.5rem;
+      
+      .menu-item {
+        &:nth-child(even) {
+          .text {
+            opacity: 1;
+            transform: translate(0, -50%);
+          }
+        }
+        &:nth-child(odd) {
+          .text {
+            opacity: 1;
+            transform: translate(0, -50%);
+          }
+        }
+      }
+    }
+  }
+  
+  .bun {
+    width: 100px;
+    height: 16px;
+    background: #D28B46;
+    
+    &.bun-top {
+      border-radius: 15px 15px 0 0;
+      position: relative;
+      height: 26px;
+      
+      .seeds {
+        width: 8px;
+        height: 4px;
+        background: #fffdd0;
+        border-radius: 6px;
+        position: absolute;
+        
+        &:first-child {
+          top:1px;
+          left:10px;
+          transform: rotate(20deg);
+        }
+        &:nth-child(2) {
+          top:4px;
+          left:42px;
+          transform: rotate(-15deg);
+        }
+        &:nth-child(3) {
+          top:2px;
+          left:51px;
+          transform: rotate(60deg);
+        }
+        &:nth-child(4) {
+          top:1px;
+          left:24px;
+          transform: rotate(-8deg);
+        }
+        &:nth-child(5) {
+          top:0px;
+          left:35px;
+          transform: rotate(25deg);
+        }
+      }
+    }
+    
+    &.bun-bottom {
+      border-radius: 0 0 5px 5px;
+    }
+  }
+  
+  .steack {
+    width: 100px;
+    height: 18px;
+    border-radius: 5px;
+    background: #592720;
+  }
+  
+  .cheese {
+    position: relative;
+    width: 104px;
+    height: 6px;
+    border-radius: 2px;
+    background: #ffeb00;
+    z-index: 5;
+    
+    &:after, &:before {
+      content:"";
+      width: 4px;
+      height: 10px;
+      border-radius: 0 0 20px 20px;
+      display: block;
+      position: absolute;
+      background: inherit;
+      right:0;
+      top:0;
+    }
+    
+    &:before {
+      right:20px;
+      height: 12px;
+      width: 8px;
+    }
+  }
+  
+  .salad {
+    width: 100px;
+    height: 4px;
+    background: green;
+  }
+  
+  .tomato {
+    position: relative;
+    width: 80px;
+    height: 6px;
+    
+    &:before, &:after {
+      content:'';
+      display: block;
+      width: 28px;
+      height: 2px;
+      background: red;
+      border-radius: 2px;
+      border: 1px solid #cd2626;
+    }
+    
+    &:before {
+      position: absolute;
+      left:3px;
+      transform: rotate(2deg);
+    }
+    
+    &:after {
+      position: absolute;
+      left:28px;
+      transform: rotate(-2deg);
+    }
+  }
+  
+  .text {
+    color: #fff;
+    font-family: sans-serif;
+    width: 120px;
+  }
